@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FiNova | Expense Category Chart</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="tool-page">
+    <a class="back-link" href="../dashboard/index.html">Back to Dashboard</a>
+    <section class="hero-panel">
+        <span>Expense Chart</span>
+        <h1>See where your money goes.</h1>
+        <p>Enter category amounts to create a simple spending breakdown.</p>
+    </section>
+    <section class="tool-card">
+        <form id="expenseForm" class="grid-form">
+            <input id="food" type="number" min="0" placeholder="Food">
+            <input id="transport" type="number" min="0" placeholder="Transport">
+            <input id="bills" type="number" min="0" placeholder="Bills">
+            <input id="shopping" type="number" min="0" placeholder="Shopping">
+            <button type="submit">Update Chart</button>
+        </form>
+        <div class="chart-layout">
+            <div class="donut" id="donut"></div>
+            <div id="legend" class="legend"></div>
+        </div>
+    </section>
+</main>
+<script src="script.js"></script>
+</body>
+</html>

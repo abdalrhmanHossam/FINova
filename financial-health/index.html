@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FiNova | Financial Health Check</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="health-app">
+    <section class="intro-panel">
+        <a class="back-link" href="../dashboard/index.html">Back to Dashboard</a>
+        <span class="eyebrow">Financial Health</span>
+        <h1>Check your monthly money position.</h1>
+        <p>Enter your income, expenses, debt payments, and savings to get a quick score with practical recommendations.</p>
+
+        <div class="score-card">
+            <div class="score-ring" id="scoreRing">
+                <span id="scoreValue">--</span>
+            </div>
+            <div>
+                <h2 id="scoreLabel">Ready to analyze</h2>
+                <p id="scoreSummary">Your score will appear after calculation.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="calculator-panel">
+        <form id="healthForm">
+            <div class="field-group">
+                <label for="income">Monthly Income</label>
+                <input type="number" id="income" min="0" placeholder="5000" required>
+            </div>
+
+            <div class="field-grid">
+                <div class="field-group">
+                    <label for="expenses">Living Expenses</label>
+                    <input type="number" id="expenses" min="0" placeholder="1800" required>
+                </div>
+                <div class="field-group">
+                    <label for="debt">Debt Payments</label>
+                    <input type="number" id="debt" min="0" placeholder="600" required>
+                </div>
+            </div>
+
+            <div class="field-grid">
+                <div class="field-group">
+                    <label for="savings">Monthly Savings</label>
+                    <input type="number" id="savings" min="0" placeholder="900" required>
+                </div>
+                <div class="field-group">
+                    <label for="emergency">Emergency Fund</label>
+                    <input type="number" id="emergency" min="0" placeholder="6000" required>
+                </div>
+            </div>
+
+            <button type="submit">Analyze Health</button>
+        </form>
+
+        <div class="metrics">
+            <div>
+                <span>Expense Ratio</span>
+                <strong id="expenseRatio">--</strong>
+            </div>
+            <div>
+                <span>Debt Ratio</span>
+                <strong id="debtRatio">--</strong>
+            </div>
+            <div>
+                <span>Savings Rate</span>
+                <strong id="savingsRate">--</strong>
+            </div>
+            <div>
+                <span>Emergency Cover</span>
+                <strong id="emergencyCover">--</strong>
+            </div>
+        </div>
+
+        <div class="recommendations">
+            <h3>Recommendations</h3>
+            <ul id="recommendationList">
+                <li>Fill the form to receive personalized recommendations.</li>
+            </ul>
+        </div>
+    </section>
+</main>
+<script src="script.js"></script>
+</body>
+</html>

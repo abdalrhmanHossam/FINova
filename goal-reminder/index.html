@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FiNova | Savings Goal Reminder</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="tool-page">
+    <a class="back-link" href="../dashboard/index.html">Back to Dashboard</a>
+    <section class="hero-panel">
+        <span>Goal Reminder</span>
+        <h1>Know exactly what to save monthly.</h1>
+        <p>Calculate the amount needed each month to reach a target by your deadline.</p>
+    </section>
+    <section class="tool-card">
+        <form id="reminderForm">
+            <input id="target" type="number" min="0" placeholder="Target amount" required>
+            <input id="saved" type="number" min="0" placeholder="Already saved" required>
+            <input id="months" type="number" min="1" placeholder="Months left" required>
+            <button type="submit">Calculate Reminder</button>
+        </form>
+        <div class="result" id="result">Your monthly target will appear here.</div>
+    </section>
+</main>
+<script src="script.js"></script>
+</body>
+</html>

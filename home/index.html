@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FiNova Bank</title>
+
+<!-- AOS -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+    <div class="logo">FiNova Bank</div>
+    <nav class="nav-links" aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#security">Security</a>
+        <a href="#contact">Contact</a>
+    </nav>
+    <div class="nav-actions">
+        <button class="theme-toggle" type="button" onclick="toggleTheme()">Light</button>
+        <button class="login" onclick="window.location.href='../login/index.html'">Login</button>
+    </div>
+</div>
+
+<!-- HERO -->
+<section class="hero" data-aos="fade-up">
+    <div class="hero-content">
+        <h1>Smart Banking Experience</h1>
+        <p>Control your financial future with FiNova</p>
+        <button onclick="window.location.href='../login/index.html'">Start Banking</button>
+    </div>
+
+    <div class="hero-bank-visual" aria-label="3D FiNova bank building">
+        <div class="bank-image-crop">
+            <img src="../images/YOUR-BANK-IMAGE.png" alt="3D FiNova Bank building">
+        </div>
+    </div>
+</section>
+
+<!-- TRUST STATS -->
+<section class="trust-strip" aria-label="FiNova highlights">
+    <div>
+        <strong>24/7</strong>
+        <span>Digital Access</span>
+    </div>
+    <div>
+        <strong>256-bit</strong>
+        <span>Data Encryption</span>
+    </div>
+    <div>
+        <strong>Real-time</strong>
+        <span>Transaction Tracking</span>
+    </div>
+    <div>
+        <strong>Smart</strong>
+        <span>Financial Insights</span>
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="about-section" data-aos="fade-right">
+
+    <div class="glass about-text">
+        <h2 style="color: #187de2;">About FiNova</h2>
+        <p>
+            FiNova is a modern digital banking platform designed to simplify the way users manage their finances in a fast and secure environment.
+
+It provides a smart and user-friendly experience that allows users to track expenses, monitor transactions in real time, and set personalized savings goals with ease.
+
+Our focus is on combining simplicity with advanced technology to deliver a seamless banking experience that is accessible anytime and anywhere.
+
+Security is a top priority, ensuring that all data and transactions are protected using modern encryption methods.
+
+FiNova empowers users to take full control of their financial journey through a clean, intuitive, and efficient digital platform.
+        </p>
+    </div>
+
+    <!-- 4 IMAGES -->
+    <div class="img-grid">
+        <img src="../images/ph1.png">
+        <img src="../images/ph2.png">
+        <img src="../images/ph3.png">
+        <img src="../images/ph4.png">
+    </div>
+
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="services-section" data-aos="fade-up">
+    <div class="section-heading">
+        <span>What you can do</span>
+        <h2>Simple tools for smarter money decisions</h2>
+    </div>
+
+    <div class="service-grid">
+        <article class="service-card">
+            <span class="service-icon">01</span>
+            <h3>Track Spending</h3>
+            <p>Monitor transactions, balances, and spending behavior from one clean dashboard.</p>
+        </article>
+        <article class="service-card">
+            <span class="service-icon">02</span>
+            <h3>Plan Goals</h3>
+            <p>Create savings goals and view progress with points, rewards, and milestones.</p>
+        </article>
+        <article class="service-card">
+            <span class="service-icon">03</span>
+            <h3>Simulate Loans</h3>
+            <p>Estimate monthly payments and understand how loans affect your financial stability.</p>
+        </article>
+        <article class="service-card">
+            <span class="service-icon">04</span>
+            <h3>Manage Subscriptions</h3>
+            <p>Find unused subscriptions and redirect wasted payments into savings.</p>
+        </article>
+        <article class="service-card">
+            <span class="service-icon">05</span>
+            <h3>Financial Health Check</h3>
+            <p>Score your monthly budget and get practical recommendations.</p>
+            <a class="service-link" href="../financial-health/index.html">Try it now</a>
+        </article>
+        <article class="service-card">
+            <span class="service-icon">06</span>
+            <h3>Budget Planner</h3>
+            <p>Split income into needs, wants, and savings with a clean monthly plan.</p>
+            <a class="service-link" href="../budget-planner/index.html">Plan budget</a>
+        </article>
+        <article class="service-card">
+            <span class="service-icon">07</span>
+            <h3>Expense Chart</h3>
+            <p>Visualize spending categories with a simple interactive chart.</p>
+            <a class="service-link" href="../expense-chart/index.html">View chart</a>
+        </article>
+        <article class="service-card">
+            <span class="service-icon">08</span>
+            <h3>Goal Reminder</h3>
+            <p>Calculate how much to save monthly to reach your target on time.</p>
+            <a class="service-link" href="../goal-reminder/index.html">Set reminder</a>
+        </article>
+        <article class="service-card">
+            <span class="service-icon">09</span>
+            <h3>Profile</h3>
+            <p>Manage simple customer details and preferred currency.</p>
+            <a class="service-link" href="../profile/index.html">Open profile</a>
+        </article>
+        <article class="service-card">
+            <span class="service-icon">10</span>
+            <h3>Transaction Filter</h3>
+            <p>Search transactions by type and amount for faster review.</p>
+            <a class="service-link" href="../transaction-filter/index.html">Filter now</a>
+        </article>
+    </div>
+</section>
+
+<!-- SECURITY -->
+<section id="security" class="security-section" data-aos="fade-up">
+    <div class="security-copy">
+        <span>Built for trust</span>
+        <h2>Secure, fast, and designed for daily banking.</h2>
+        <p>FiNova keeps the experience clear while prioritizing protected access, account visibility, and practical financial planning tools.</p>
+    </div>
+    <div class="security-panel">
+        <div>
+            <strong>Protected login</strong>
+            <span>Email and password authentication flow.</span>
+        </div>
+        <div>
+            <strong>Clear insights</strong>
+            <span>Dashboard sections for accounts, transactions, reports, and settings.</span>
+        </div>
+        <div>
+            <strong>Action-focused tools</strong>
+            <span>Goal tracker, simulator, and subscription manager connected from one place.</span>
+        </div>
+    </div>
+</section>
+
+<!-- BIG IMAGE -->
+<section data-aos="zoom-in">
+    <div class="single-img glass">
+        <img src="../images/visa.png">
+    </div>
+</section>
+
+<!-- VIDEO -->
+<section data-aos="fade-up">
+    <div class="video-box glass">
+        <video autoplay muted loop controls>
+            <source src="../images/YOUR-VIDEO.mp4" type="video/mp4">
+        </video>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="cta" data-aos="fade-up">
+    <h2>Start Your Smart Banking Journey</h2>
+    <p>Sign in and explore your FiNova dashboard, goals, subscriptions, and reports.</p>
+    <button onclick="window.location.href='../login/index.html'">Go to Login</button>
+</section>
+
+<!-- FOOTER -->
+<footer id="contact" class="site-footer">
+    <div>
+        <h3>FiNova Bank</h3>
+        <p>Smart digital banking for everyday financial control.</p>
+    </div>
+    <div class="footer-links">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="../login/index.html">Login</a>
+    </div>
+</footer>
+
+<!-- AOS -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+
+<script src="script.js"></script>
+</body>
+</html>
+
+

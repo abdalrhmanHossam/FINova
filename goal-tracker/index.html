@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FiNova | Goal Tracker</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="card">
+    <h2>Goal Tracker</h2>
+    <form id="goalForm">
+        <input type="text" id="goalName" name="goal_name" placeholder="Goal Name (e.g Travel)" required>
+        <input type="number" id="targetAmount" name="target" placeholder="Target Amount $" required>
+        <input type="number" id="savedAmount" name="saved" placeholder="Saved Amount $" required>
+        <button type="submit" name="calculate">CALCULATE</button>
+    </form>
+
+    <div id="result" class="result" hidden>
+        <h3 id="goalTitle"></h3>
+        <div class="progress">
+            <div class="bar" id="progressBar"></div>
+        </div>
+        <h3 id="progressText"></h3>
+        <p id="pointsText"></p>
+        <p id="rewardText"></p>
+        <p id="statusText"></p>
+        <p id="milestoneText"></p>
+    </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

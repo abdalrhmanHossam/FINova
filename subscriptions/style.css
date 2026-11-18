@@ -1,0 +1,191 @@
+:root {
+    --primary: #3b82f6;
+    --success: #22c55e;
+    --warning: #f59e0b;
+    --bg: #1e293b;
+    --card: #0f172a;
+    --text: #f1f5f9;
+    --muted: #94a3b8;
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", Tahoma, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    padding: 20px;
+}
+
+.dashboard {
+    max-width: 900px;
+    margin: auto;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+h1 {
+    margin: 0;
+    font-size: 26px;
+}
+
+header span {
+    color: var(--muted);
+}
+
+.savings-card {
+    background: linear-gradient(135deg, #2563eb, #1e40af);
+    color: white;
+    padding: 25px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+.savings-card h3 {
+    margin: 0;
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+.savings-card .amount {
+    font-size: 34px;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.success-message {
+    display: none;
+    background: #14532d;
+    color: #bbf7d0;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.sub-list {
+    background: var(--card);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+.sub-list h2 {
+    margin-top: 0;
+}
+
+.sub-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 0;
+    border-bottom: 1px solid #1e293b;
+}
+
+.sub-item:last-child {
+    border-bottom: none;
+}
+
+.sub-info .name {
+    font-weight: bold;
+    font-size: 17px;
+    display: block;
+}
+
+.status {
+    font-size: 13px;
+    color: var(--muted);
+}
+
+.status.warning {
+    color: var(--warning);
+    font-weight: bold;
+}
+
+.sub-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.sub-price {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+button {
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    padding: 8px 16px;
+    transition: 0.2s;
+}
+
+.btn-cancel,
+.btn-close {
+    background: #334155;
+    color: white;
+}
+
+.btn-cancel:hover,
+.btn-close:hover {
+    background: #475569;
+}
+
+.btn-cancel.warning-btn {
+    background: var(--warning);
+    color: white;
+}
+
+.overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.7);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal {
+    background: #0f172a;
+    padding: 30px;
+    border-radius: 20px;
+    width: min(400px, calc(100% - 40px));
+    text-align: center;
+    color: white;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+}
+
+.modal p {
+    line-height: 1.6;
+    margin: 20px 0;
+    color: var(--muted);
+}
+
+.btn-group {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn-confirm {
+    background: var(--success);
+    color: white;
+}
+
+@media (max-width: 640px) {
+    .sub-item,
+    header {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 12px;
+    }
+}

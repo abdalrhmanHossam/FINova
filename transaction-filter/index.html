@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FiNova | Transaction Filter</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="tool-page">
+    <a class="back-link" href="../dashboard/index.html">Back to Dashboard</a>
+    <section class="hero-panel">
+        <span>Transaction Filter</span>
+        <h1>Find the transactions that matter.</h1>
+        <p>Filter transactions by type and minimum amount.</p>
+    </section>
+    <section class="tool-card">
+        <div class="filters">
+            <select id="typeFilter"><option value="all">All Types</option><option value="income">Income</option><option value="expense">Expense</option></select>
+            <input id="minAmount" type="number" min="0" placeholder="Minimum amount">
+            <button id="applyFilter">Apply Filter</button>
+        </div>
+        <div class="transaction-list" id="transactionList"></div>
+    </section>
+</main>
+<script src="script.js"></script>
+</body>
+</html>

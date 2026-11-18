@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FiNova | Smart Subscription Manager</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="dashboard">
+    <header>
+        <h1>FiNova</h1>
+        <span>Smart Subscription Manager</span>
+    </header>
+
+    <div class="savings-card">
+        <h3>Total Savings Account</h3>
+        <div class="amount" id="savings-balance">$1,250.00</div>
+    </div>
+
+    <div class="success-message" id="success-message"></div>
+
+    <div class="sub-list">
+        <h2>Active Subscriptions</h2>
+        <div id="subscription-container"></div>
+    </div>
+</div>
+
+<div class="overlay" id="overlay">
+    <div class="modal">
+        <h3>Confirm Cancellation</h3>
+        <p id="modal-text"></p>
+        <div class="btn-group">
+            <button class="btn-confirm" onclick="confirmCancellation()">Yes, Transfer to Savings</button>
+            <button class="btn-close" onclick="closeModal()">No, Keep it</button>
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

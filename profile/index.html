@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FiNova | Profile</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="profile-page">
+    <a class="back-link" href="../dashboard/index.html">Back to Dashboard</a>
+    <section class="profile-card">
+        <div class="avatar">FN</div>
+        <div>
+            <span>Customer Profile</span>
+            <h1>Manage your personal banking details.</h1>
+        </div>
+    </section>
+    <section class="form-card">
+        <form id="profileForm">
+            <label>Full Name<input id="fullName" value="FiNova User"></label>
+            <label>Email Address<input id="email" type="email" value="user@finova.com"></label>
+            <label>Phone Number<input id="phone" value="+20 100 000 0000"></label>
+            <label>Preferred Currency<select id="currency"><option>USD</option><option>EGP</option><option>EUR</option></select></label>
+            <button type="submit">Save Profile</button>
+        </form>
+        <p id="status">Changes are saved in this browser.</p>
+    </section>
+</main>
+<script src="script.js"></script>
+</body>
+</html>

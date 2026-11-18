@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FiNova | Interactive Financial Simulator</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <div class="simulator-card" id="report-area">
+            <div class="card-header">
+                <div class="logo">FI<span>NOVA</span></div>
+                <h1>Dynamic Financial Simulator 🚀</h1>
+                <p>Enter your numbers or move the sliders to analyze your financial stability.</p>
+            </div>
+
+            <div class="main-grid">
+                <div class="controls">
+                    <div class="input-item">
+                        <div class="label-row">
+                            <span>Monthly Income</span>
+                            <div class="value-badge blue">
+                                <input type="number" id="income-num" value="5000"><span>$</span>
+                            </div>
+                        </div>
+                        <input type="range" id="income-range" min="1000" max="20000" value="5000">
+                    </div>
+
+                    <div class="input-item">
+                        <div class="label-row">
+                            <span>Loan Installment</span>
+                            <div class="value-badge red">
+                                <input type="number" id="loan-num" value="800"><span>$</span>
+                            </div>
+                        </div>
+                        <input type="range" id="loan-range" min="0" max="10000" value="800">
+                    </div>
+
+                    <div class="input-item">
+                        <div class="label-row">
+                            <span>Living Expenses</span>
+                            <div class="value-badge yellow">
+                                <input type="number" id="lifestyle-num" value="1200"><span>$</span>
+                            </div>
+                        </div>
+                        <input type="range" id="lifestyle-range" min="0" max="10000" value="1200">
+                    </div>
+                </div>
+
+                <div class="visualization">
+                    <div class="chart-box">
+                        <canvas id="financeChart"></canvas>
+                        <div id="status-circle" class="status-center safe">
+                            <span id="status-label">Safe</span>
+                        </div>
+                    </div>
+                    <div class="advice-card">
+                        <p id="advice-text">Analysis: Your budget is currently in a stable position.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="actions">
+                <button onclick="downloadReport()" class="btn-download">Download Financial Report (PDF) 📥</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="chat-bubble" onclick="toggleChat()">💬</div>
+    
+    <div id="chat-window" class="hidden">
+        <div class="chat-header">
+            <span>FiNova AI Assistant</span>
+            <button onclick="toggleChat()">✕</button>
+        </div>
+        <div id="chat-content">
+            <div class="msg bot">Hello! I am your financial assistant. How can I help you today?</div>
+        </div>
+        <div class="chat-input-area">
+            <input type="text" id="user-msg-input" placeholder="Type your message...">
+            <button onclick="handleChat()">➤</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

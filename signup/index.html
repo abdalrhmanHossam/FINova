@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FiNova Bank | Sign Up</title>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="auth-container">
+
+    <div class="glass-card">
+
+        <!-- SAME HEADER AS LOGIN -->
+        <div class="auth-header">
+
+            <a href="../home/index.html" class="logo">
+                <img src="../images/logoo.png" alt="FiNova Logo">
+            </a>
+
+            <h1>Create Account</h1>
+            <p>Start your financial journey today</p>
+
+        </div>
+
+        <form id="signupForm">
+
+            <div class="form-group">
+                <label>Full Name</label>
+                <input type="text" name="name" placeholder="John Doe" required>
+            </div>
+
+            <div class="form-group">
+                <label>Email Address</label>
+                <input type="email" name="email" placeholder="name@example.com" required>
+            </div>
+
+            <div class="form-group">
+                <label>Password</label>
+                <div class="password-wrapper">
+                    <input type="password" id="password" name="password" placeholder="••••••••" required>
+                    <button type="button" class="toggle-password" data-target="password" aria-label="Show password" title="Show / Hide password">
+                        <svg class="icon-eye" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M1.5 12s4-7 10.5-7 10.5 7 10.5 7-4 7-10.5 7S1.5 12 1.5 12Z"></path>
+                            <circle cx="12" cy="12" r="3"></circle>
+                        </svg>
+                        <svg class="icon-eye-off" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M3 3l18 18"></path>
+                            <path d="M10.58 10.58A2 2 0 0 0 12 14a2 2 0 0 0 1.42-.58"></path>
+                            <path d="M9.88 5.12A10.66 10.66 0 0 1 12 5c6.5 0 10.5 7 10.5 7a18.38 18.38 0 0 1-4.04 4.62"></path>
+                            <path d="M6.11 6.11C3.28 7.97 1.5 12 1.5 12S5.5 19 12 19a10.86 10.86 0 0 0 4.13-.82"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Confirm Password</label>
+                <div class="password-wrapper">
+                    <input type="password" id="confirm_password" name="confirm_password" placeholder="••••••••" required>
+                    <button type="button" class="toggle-password" data-target="confirm_password" aria-label="Show confirm password" title="Show / Hide password">
+                        <svg class="icon-eye" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M1.5 12s4-7 10.5-7 10.5 7 10.5 7-4 7-10.5 7S1.5 12 1.5 12Z"></path>
+                            <circle cx="12" cy="12" r="3"></circle>
+                        </svg>
+                        <svg class="icon-eye-off" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M3 3l18 18"></path>
+                            <path d="M10.58 10.58A2 2 0 0 0 12 14a2 2 0 0 0 1.42-.58"></path>
+                            <path d="M9.88 5.12A10.66 10.66 0 0 1 12 5c6.5 0 10.5 7 10.5 7a18.38 18.38 0 0 1-4.04 4.62"></path>
+                            <path d="M6.11 6.11C3.28 7.97 1.5 12 1.5 12S5.5 19 12 19a10.86 10.86 0 0 0 4.13-.82"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <button type="submit" class="auth-btn">Create Account</button>
+
+        </form>
+
+        <div id="errorMessage"></div>
+
+        <div class="auth-footer">
+            <p>Already have an account? <a href="../login/index.html">Login</a></p>
+        </div>
+
+    </div>
+
+    <a href="../home/index.html" class="back-link">← Back to Home</a>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
+
+

@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FiNova Bank | Dashboard</title>
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+<div class="dashboard-container">
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="logo-image">
+                <img src="../images/logoo.png" alt="FiNova Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            </div>
+           
+        </div>
+
+
+        <!-- Navigation Menu -->
+        <nav class="nav-menu">
+            <!-- Main Navigation -->
+            <div class="nav-section">
+                <span class="nav-section-title">Main</span>
+
+                <a class="nav-item active" href="#" onclick="showSection('dashboard'); return false;">
+                    <i class="fas fa-home"></i>
+                    <span>Home</span>
+                </a>
+
+                <a class="nav-item" href="#" onclick="showSection('transactions'); return false;">
+                    <i class="fas fa-exchange-alt"></i>
+                    <span>Transactions</span>
+                </a>
+
+                <a class="nav-item" href="#" onclick="showSection('simulator'); return false;">
+                    <i class="fas fa-calculator"></i>
+                    <span>Loan Simulator</span>
+                </a>
+            </div>
+
+            <!-- Tools Section -->
+            <div class="nav-section">
+                <span class="nav-section-title">Tools</span>
+
+                <a class="nav-item" href="../simulator/index.html">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Financial Simulator</span>
+                </a>
+
+                <a class="nav-item" href="../goal-tracker/index.html">
+                    <i class="fas fa-bullseye"></i>
+                    <span>Goal Tracker</span>
+                </a>
+
+                <a class="nav-item" href="../subscriptions/index.html">
+                    <i class="fas fa-lightbulb"></i>
+                    <span>Smart Subscriptions</span>
+                </a>
+
+                <a class="nav-item" href="../financial-health/index.html">
+                    <i class="fas fa-heartbeat"></i>
+                    <span>Financial Health</span>
+                </a>
+
+                <a class="nav-item" href="../budget-planner/index.html">
+                    <i class="fas fa-file-invoice-dollar"></i>
+                    <span>Budget Planner</span>
+                </a>
+
+                <a class="nav-item" href="../expense-chart/index.html">
+                    <i class="fas fa-chart-pie"></i>
+                    <span>Expense Chart</span>
+                </a>
+
+                <a class="nav-item" href="../goal-reminder/index.html">
+                    <i class="fas fa-clock"></i>
+                    <span>Goal Reminder</span>
+                </a>
+
+                <a class="nav-item" href="../transaction-filter/index.html">
+                    <i class="fas fa-search"></i>
+                    <span>Transaction Filter</span>
+                </a>
+            </div>
+
+            <!-- Account Section -->
+            <div class="nav-section">
+                <span class="nav-section-title">Account</span>
+
+                <a class="nav-item" href="../profile/index.html">
+                    <i class="fas fa-user"></i>
+                    <span>Profile</span>
+                </a>
+
+                <a class="nav-item" href="#" onclick="showSection('reports'); return false;">
+                    <i class="fas fa-chart-bar"></i>
+                    <span>Reports</span>
+                </a>
+
+                <a class="nav-item" href="#" onclick="showSection('settings'); return false;">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+
+                <a class="nav-item nav-item-logout" href="#" onclick="logout(); return false;">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </a>
+            </div>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content" id="mainContent">
+        <!-- Top Header -->
+        <header class="top-header">
+            <div class="header-left">
+                <button class="mobile-menu-btn" id="mobileMenuBtn" onclick="toggleMobileSidebar()">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="header-title">
+                    <h1>Dashboard</h1>
+                </div>
+            </div>
+
+            <div class="header-right">
+                <!-- Notification Wrapper - FIXED: proper z-index and positioning context -->
+                <div class="notification-wrapper">
+                    <button class="notification-btn" id="notificationBtn" onclick="toggleNotifications()">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge" id="notifBadge">3</span>
+                    </button>
+
+                    <!-- Notifications Dropdown - FIXED: z-index 9999, proper positioning -->
+                    <div class="notifications-dropdown" id="notificationsDropdown">
+                        <div class="notification-header">
+                            <h3>Notifications</h3>
+                            <button class="clear-all" onclick="clearAllNotifications()">Clear All</button>
+                        </div>
+                        <div class="notifications-list" id="notificationsList">
+                            <div class="notification-item unread" onclick="markAsRead(this)">
+                                <div class="notification-icon success">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                <div class="notification-content">
+                                    <p>Payment received: $2,500.00</p>
+                                    <small>2 minutes ago</small>
+                                </div>
+                            </div>
+                            <div class="notification-item unread" onclick="markAsRead(this)">
+                                <div class="notification-icon warning">
+                                    <i class="fas fa-exclamation"></i>
+                                </div>
+                                <div class="notification-content">
+                                    <p>Low balance alert: Checking account</p>
+                                    <small>1 hour ago</small>
+                                </div>
+                            </div>
+                            <div class="notification-item unread" onclick="markAsRead(this)">
+                                <div class="notification-icon info">
+                                    <i class="fas fa-info"></i>
+                                </div>
+                                <div class="notification-content">
+                                    <p>Monthly statement available</p>
+                                    <small>3 hours ago</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="user-profile" onclick="showSection('settings')">
+                    <div class="user-avatar">JD</div>
+                    <div class="user-info">
+                        <div class="user-name" id="userName">John Doe</div>
+                        <div class="user-role">Premium Member</div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Dashboard Section -->
+        <section id="dashboard" class="section active">
+            <!-- Stats Cards -->
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-info">
+                            <div class="card-label">Total Balance</div>
+                            <div class="card-value">$24,562.00</div>
+                            <div class="card-change positive">
+                                <i class="fas fa-arrow-up"></i>
+                                <span>+12.5% this month</span>
+                            </div>
+                        </div>
+                        <div class="card-icon blue">
+                            <i class="fas fa-wallet"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-info">
+                            <div class="card-label">Monthly Savings</div>
+                            <div class="card-value">$3,240.00</div>
+                            <div class="card-change positive">
+                                <i class="fas fa-arrow-up"></i>
+                                <span>+8.2% vs last month</span>
+                            </div>
+                        </div>
+                        <div class="card-icon green">
+                            <i class="fas fa-piggy-bank"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-info">
+                            <div class="card-label">Investments</div>
+                            <div class="card-value">$18,950.00</div>
+                            <div class="card-change negative">
+                                <i class="fas fa-arrow-down"></i>
+                                <span>-2.1% this week</span>
+                            </div>
+                        </div>
+                        <div class="card-icon orange">
+                            <i class="fas fa-chart-pie"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Transactions -->
+            <div class="content-box transactions-box">
+                <div class="content-header">
+                    <h3><i class="fas fa-list"></i> Recent Transactions</h3>
+                    <button class="view-all-btn" onclick="showSection('transactions')">View All</button>
+                </div>
+
+                <div class="transactions-list">
+                    <div class="transaction-item">
+                        <div class="transaction-icon blue">
+                            <i class="fas fa-shopping-bag"></i>
+                        </div>
+                        <div class="transaction-details">
+                            <div class="transaction-name">Apple Store</div>
+                            <div class="transaction-date">Today, 2:34 PM</div>
+                        </div>
+                        <div class="transaction-amount negative">-$1,299.00</div>
+                    </div>
+
+                    <div class="transaction-item">
+                        <div class="transaction-icon green">
+                            <i class="fas fa-arrow-down"></i>
+                        </div>
+                        <div class="transaction-details">
+                            <div class="transaction-name">Salary Deposit</div>
+                            <div class="transaction-date">Yesterday, 9:00 AM</div>
+                        </div>
+                        <div class="transaction-amount positive">+$5,200.00</div>
+                    </div>
+
+                    <div class="transaction-item">
+                        <div class="transaction-icon orange">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <div class="transaction-details">
+                            <div class="transaction-name">Electric Bill</div>
+                            <div class="transaction-date">Apr 12, 2026</div>
+                        </div>
+                        <div class="transaction-amount negative">-$145.00</div>
+                    </div>
+
+                    <div class="transaction-item">
+                        <div class="transaction-icon purple">
+                            <i class="fas fa-exchange-alt"></i>
+                        </div>
+                        <div class="transaction-details">
+                            <div class="transaction-name">Transfer to Savings</div>
+                            <div class="transaction-date">Apr 10, 2026</div>
+                        </div>
+                        <div class="transaction-amount negative">-$1,000.00</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Transactions Section -->
+        <section id="transactions" class="section">
+            <div class="content-box">
+                <div class="content-header">
+                    <h3><i class="fas fa-exchange-alt"></i> All Transactions</h3>
+                </div>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Description</th>
+                            <th>Category</th>
+                            <th>Date</th>
+                            <th>Amount</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>#TRX-001</td>
+                            <td>Apple Store Purchase</td>
+                            <td>Electronics</td>
+                            <td>Apr 19, 2026</td>
+                            <td class="negative">-$1,299.00</td>
+                            <td><span class="status completed">Completed</span></td>
+                        </tr>
+                        <tr>
+                            <td>#TRX-002</td>
+                            <td>Monthly Salary</td>
+                            <td>Income</td>
+                            <td>Apr 15, 2026</td>
+                            <td class="positive">+$8,450.00</td>
+                            <td><span class="status completed">Completed</span></td>
+                        </tr>
+                        <tr>
+                            <td>#TRX-003</td>
+                            <td>Electric Bill Payment</td>
+                            <td>Utilities</td>
+                            <td>Apr 12, 2026</td>
+                            <td class="negative">-$145.00</td>
+                            <td><span class="status pending">Pending</span></td>
+                        </tr>
+                        <tr>
+                            <td>#TRX-004</td>
+                            <td>Grocery Store</td>
+                            <td>Food</td>
+                            <td>Apr 11, 2026</td>
+                            <td class="negative">-$234.50</td>
+                            <td><span class="status completed">Completed</span></td>
+                        </tr>
+                        <tr>
+                            <td>#TRX-005</td>
+                            <td>Online Transfer</td>
+                            <td>Transfer</td>
+                            <td>Apr 10, 2026</td>
+                            <td class="negative">-$1,000.00</td>
+                            <td><span class="status completed">Completed</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Simulator Section -->
+        <section id="simulator" class="section">
+            <div class="content-box simulator-box">
+                <div class="content-header">
+                    <h3><i class="fas fa-calculator"></i> Loan Simulator</h3>
+                </div>
+                <p class="simulator-desc">
+                    Calculate your monthly payments and total interest for different loan scenarios.
+                </p>
+
+                <div class="simulator-inputs">
+                    <div class="input-group">
+                        <label>Loan Amount ($)</label>
+                        <input type="number" id="loanAmount" placeholder="Enter amount" value="50000" min="1000" step="1000">
+                    </div>
+                    <div class="input-group">
+                        <label>Interest Rate (%)</label>
+                        <input type="number" id="interestRate" placeholder="Enter rate" value="5.5" min="0.1" max="30" step="0.1">
+                    </div>
+                    <div class="input-group">
+                        <label>Loan Term (Months)</label>
+                        <input type="number" id="loanTerm" placeholder="Enter months" value="60" min="6" max="360" step="6">
+                    </div>
+                    <div class="input-group">
+                        <label>Loan Type</label>
+                        <select id="loanType">
+                            <option value="personal">Personal Loan</option>
+                            <option value="mortgage">Mortgage</option>
+                            <option value="auto">Auto Loan</option>
+                            <option value="business">Business Loan</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button class="simulate-btn" onclick="calculateLoan()">
+                    <i class="fas fa-calculator"></i>
+                    <span id="btnText">Calculate Loan</span>
+                </button>
+
+                <div class="simulator-results" id="simulatorResults">
+                    <div class="result-row">
+                        <span>Monthly Payment</span>
+                        <span id="monthlyPayment">$0.00</span>
+                    </div>
+                    <div class="result-row">
+                        <span>Total Interest</span>
+                        <span id="totalInterest">$0.00</span>
+                    </div>
+                    <div class="result-row">
+                        <span>Total Payment</span>
+                        <span id="totalPayment">$0.00</span>
+                    </div>
+                    <div class="result-row">
+                        <span>Annual Cost</span>
+                        <span id="annualCost">$0.00</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reports Section -->
+        <section id="reports" class="section">
+            <div class="reports-grid">
+                <div class="report-card">
+                    <div class="report-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <h4>Monthly Statement</h4>
+                    <p>Complete transaction history and account summary for April 2026.</p>
+                    <button class="download-btn" onclick="downloadReport('monthly', 'Monthly_Statement_April_2026.pdf')">
+                        <i class="fas fa-download"></i> Download PDF
+                    </button>
+                </div>
+
+                <div class="report-card">
+                    <div class="report-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h4>Annual Financial Report</h4>
+                    <p>Comprehensive yearly overview of income, expenses, and savings.</p>
+                    <button class="download-btn" onclick="downloadReport('annual', 'Annual_Report_2026.pdf')">
+                        <i class="fas fa-download"></i> Download PDF
+                    </button>
+                </div>
+
+                <div class="report-card">
+                    <div class="report-icon">
+                        <i class="fas fa-file-invoice-dollar"></i>
+                    </div>
+                    <h4>Tax Documents</h4>
+                    <p>Tax forms and deductible expenses for your accountant.</p>
+                    <button class="download-btn" onclick="downloadReport('tax', 'Tax_Documents_2026.pdf')">
+                        <i class="fas fa-download"></i> Download PDF
+                    </button>
+                </div>
+
+                <div class="report-card">
+                    <div class="report-icon">
+                        <i class="fas fa-chart-pie"></i>
+                    </div>
+                    <h4>Spending Analysis</h4>
+                    <p>Detailed breakdown of spending patterns by category.</p>
+                    <button class="download-btn" onclick="downloadReport('spending', 'Spending_Analysis_Q1_2026.pdf')">
+                        <i class="fas fa-download"></i> Download PDF
+                    </button>
+                </div>
+
+                <div class="report-card">
+                    <div class="report-icon">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <h4>Loan Amortization</h4>
+                    <p>Payment schedule and principal/interest breakdown.</p>
+                    <button class="download-btn" onclick="downloadReport('loan', 'Loan_Amortization_Schedule.pdf')">
+                        <i class="fas fa-download"></i> Download PDF
+                    </button>
+                </div>
+
+                <div class="report-card">
+                    <div class="report-icon">
+                        <i class="fas fa-clipboard-list"></i>
+                    </div>
+                    <h4>Account Summary</h4>
+                    <p>Quick snapshot of all accounts and current balances.</p>
+                    <button class="download-btn" onclick="downloadReport('summary', 'Account_Summary.pdf')">
+                        <i class="fas fa-download"></i> Download PDF
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Settings Section -->
+        <section id="settings" class="section">
+            <div class="content-box settings-box">
+                <div class="content-header">
+                    <h3><i class="fas fa-cog"></i> Account Settings</h3>
+                </div>
+
+                <form class="settings-form" onsubmit="saveSettings(event)">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Full Name</label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-user"></i>
+                                <input type="text" id="settingName" value="John Doe">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Email Address</label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-envelope"></i>
+                                <input type="email" id="settingEmail" value="john.doe@example.com">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Phone Number</label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-phone"></i>
+                                <input type="tel" id="settingPhone" value="+1 (555) 123-4567">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Currency</label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-coins"></i>
+                                <select id="settingCurrency">
+                                    <option value="USD" selected>USD ($)</option>
+                                    <option value="EUR">EUR (€)</option>
+                                    <option value="GBP">GBP (£)</option>
+                                    <option value="JPY">JPY (¥)</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Language</label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-globe"></i>
+                                <select id="settingLanguage">
+                                    <option value="en" selected>English</option>
+                                    <option value="es">Spanish</option>
+                                    <option value="fr">French</option>
+                                    <option value="de">German</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Notifications</label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-bell"></i>
+                                <select id="settingNotifications">
+                                    <option value="all" selected>All Notifications</option>
+                                    <option value="important">Important Only</option>
+                                    <option value="none">None</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="save-btn">
+                        <i class="fas fa-save"></i> Save Changes
+                    </button>
+                </form>
+            </div>
+        </section>
+    </main>
+</div>
+
+<!-- Toast Notification -->
+<div class="toast" id="toast">
+    <div class="toast-icon">
+        <i class="fas fa-check"></i>
+    </div>
+    <div class="toast-content">
+        <h4>Success</h4>
+        <p id="toastMessage">Operation completed successfully</p>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

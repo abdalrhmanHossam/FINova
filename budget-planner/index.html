@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FiNova | Budget Planner</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="tool-page">
+    <a class="back-link" href="../dashboard/index.html">Back to Dashboard</a>
+    <section class="hero-panel">
+        <span>Budget Planner</span>
+        <h1>Build a clear monthly budget.</h1>
+        <p>Use the 50/30/20 method to split your income into needs, wants, and savings.</p>
+    </section>
+
+    <section class="tool-card">
+        <form id="budgetForm">
+            <label for="income">Monthly Income</label>
+            <input id="income" type="number" min="0" placeholder="5000" required>
+            <button type="submit">Create Budget</button>
+        </form>
+
+        <div class="budget-grid" id="budgetResults" hidden>
+            <div><span>Needs 50%</span><strong id="needsValue">$0</strong></div>
+            <div><span>Wants 30%</span><strong id="wantsValue">$0</strong></div>
+            <div><span>Savings 20%</span><strong id="savingsValue">$0</strong></div>
+        </div>
+        <p class="tip" id="budgetTip">Enter your income to generate a simple budget.</p>
+    </section>
+</main>
+<script src="script.js"></script>
+</body>
+</html>
